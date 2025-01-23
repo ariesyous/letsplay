@@ -4,7 +4,7 @@ let socket;
 
 module.exports = {
   init: () => {
-    socket = openSocket("/");
+    socket = openSocket.io("/");
     return socket;
   },
   getSocket: () => socket,

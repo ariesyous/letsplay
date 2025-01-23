@@ -2,3 +2,5 @@ node_modules
 /client/node_modules
 .env
 /client/src/index.js
+docker-compose.yml
+/client/build

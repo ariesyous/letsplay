@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=mongodb://172.18.0.1:27017/letsplay
+      - SECRET=dfd987y8dsfk098sdfjhsdf98
+    command: npm start
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/client
+    environment:
+      - CHOKIDAR_USEPOLLING=true # Useful for file watching in Docker
+      - REACT_APP_BASE_API=/api
+    command: npm start

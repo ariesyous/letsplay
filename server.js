@@ -2,17 +2,19 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+const morgan = require("morgan");
 const initSocketListener = require("./socket-listeners/connection");
 
 const bodyParser = require("body-parser");
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 5000;
 
 let eventRoutes = require("./routes/event");
 let nomRoutes = require("./routes/nominatim");
 let userRoutes = require("./routes/user");
 
+app.use(morgan("combined"));
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(require("./config/auth"));

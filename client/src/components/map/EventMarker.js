@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useMap, Marker } from "react-leaflet";
-import {} from "react-redux";
 import markerStyles from "./CustomerMarker/CustomeMarker";
 
 const EventMarker = () => {
