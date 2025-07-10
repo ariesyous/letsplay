@@ -6,7 +6,9 @@
 ├── config
 ├── controllers
 ├── docker-compose.yaml
+├── docs
 ├── index.html
+├── jest.config.js
 ├── letsplay_event_requests.postman_collection.json
 ├── models
 ├── package-lock.json
@@ -14,9 +16,12 @@
 ├── repo-tree.txt
 ├── routes
 ├── server.js
-└── socket-listeners
+├── socket-listeners
+├── tests
+├── tsconfig.json
+└── typedoc.json
 
-directory: 6 file: 9
+directory: 8 file: 12
 
 
 
