@@ -4,6 +4,11 @@ const SALT_ROUNDS = 6;
 const jwt = require("jsonwebtoken");
 
 //small change
+/**
+ * Register a new user or attach credentials to a guest.
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
 async function create(req, res) {
   console.log(req.body);
   console.log("request user from create", req.user);
@@ -33,6 +38,11 @@ async function create(req, res) {
   }
 }
 
+/**
+ * Find a user by id.
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
 async function find(req, res) {
   try {
     let user = await User.findOne({ _id: req.body.id }).populate("events");
@@ -43,6 +53,11 @@ async function find(req, res) {
 }
 
 //Update Token and pass token back || Might need {new: true} to get updated user
+/**
+ * Update a user profile.
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
 async function update(req, res) {
   try {
     const user = await User.findOneAndUpdate(
@@ -57,6 +72,11 @@ async function update(req, res) {
   }
 }
 
+/**
+ * Authenticate a user.
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
 async function login(req, res) {
   try {
     const user = await User.findOne({ username: req.body.username });
@@ -72,6 +92,11 @@ async function login(req, res) {
   }
 }
 
+/**
+ * Simple logout endpoint.
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
 async function logout(req, res) {
   res.send({
     message: "Successfully logged out",
@@ -79,6 +104,11 @@ async function logout(req, res) {
   });
 }
 
+/**
+ * Register a user via traditional form.
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
 async function register(req, res) {
   User.findOne({ username: req.body.username }, async (err, doc) => {
     if (err) throw err;

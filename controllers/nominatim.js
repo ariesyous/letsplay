@@ -1,5 +1,10 @@
 const axios = require("axios");
 
+/**
+ * Reverse geocode to an address.
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
 async function getLatLng(req, res) {
   const API_STRING = `https://nominatim.openstreetmap.org/reverse?lat=${req.params.lat}&lon=${req.params.lng}&format=json`;
   var config = {
@@ -16,6 +21,11 @@ async function getLatLng(req, res) {
   }
 }
 
+/**
+ * Forward geocode an address.
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
 async function setLatLng(req, res) {
   const API_STRING = `https://nominatim.openstreetmap.org/search?q=${req.params.address}&format=json`;
   var config = {

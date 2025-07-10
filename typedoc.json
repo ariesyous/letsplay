@@ -1,0 +1,11 @@
+{
+  "entryPoints": [
+    "server.js",
+    "controllers",
+    "models",
+    "routes",
+    "config"
+  ],
+  "tsconfig": "tsconfig.json",
+  "out": "docs"
+}

@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": false,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "skipLibCheck": true
+  },
+  "include": [
+    "server.js",
+    "controllers/**/*.js",
+    "models/**/*.js",
+    "routes/**/*.js",
+    "config/**/*.js"
+  ],
+  "exclude": [
+    "client/**",
+    "node_modules",
+    "coverage",
+    "docs"
+  ]
+}
