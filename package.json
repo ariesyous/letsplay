@@ -4,7 +4,10 @@
   "description": "Create sporting events so you can find other people to play with",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "echo 'No lint configured'",
+    "build": "echo 'No build step'",
+    "test": "jest --coverage",
+    "docs": "typedoc",
     "start:dev": "nodemon server",
     "start": "node server"
   },
@@ -26,5 +29,10 @@
     "passport-local": "^1.0.0",
     "react-share": "^4.3.1",
     "socket.io": "^4.2.0"
+  },
+  "devDependencies": {
+    "jest": "^30.0.4",
+    "mongodb-memory-server": "^10.1.4",
+    "typedoc": "^0.28.7"
   }
 }

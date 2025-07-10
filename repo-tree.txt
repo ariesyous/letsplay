@@ -1,0 +1,23 @@
+
+/workspace/letsplay
+├── Dockerfile
+├── README.md
+├── client
+├── config
+├── controllers
+├── docker-compose.yaml
+├── index.html
+├── letsplay_event_requests.postman_collection.json
+├── models
+├── package-lock.json
+├── package.json
+├── repo-tree.txt
+├── routes
+├── server.js
+└── socket-listeners
+
+directory: 6 file: 9
+
+
+
+[2K[1G

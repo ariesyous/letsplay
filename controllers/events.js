@@ -3,6 +3,11 @@ const Event = require("../models/event");
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 
+/**
+ * Return all upcoming events.
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
 async function findAllEvents(req, res) {
   let today = new Date();
   today.setUTCHours(0);
@@ -17,6 +22,11 @@ async function findAllEvents(req, res) {
   }
 }
 
+/**
+ * Find a single event by id.
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
 async function findEvent(req, res) {
   try {
     const event = await Event.findOne({ _id: req.query.id });
@@ -27,6 +37,11 @@ async function findEvent(req, res) {
   }
 }
 
+/**
+ * Update an event if the current user is the creator.
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
 async function updateEvent(req, res) {
   try {
     const event = await Event.findOne({ _id: req.body.id });
@@ -48,6 +63,11 @@ async function updateEvent(req, res) {
   }
 }
 
+/**
+ * Delete an event owned by the current user.
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
 async function deleteEvent(req, res) {
   try {
     const event = await Event.findOne({ _id: req.body.id });
@@ -65,6 +85,11 @@ async function deleteEvent(req, res) {
   }
 }
 
+/**
+ * Create a new event.
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
 async function createEvent(req, res) {
   const newEvent = new Event(req.body);
   try {
@@ -93,6 +118,11 @@ async function createEvent(req, res) {
   }
 }
 
+/**
+ * List events created by the current user.
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
 async function getMyEvents(req, res) {
   try {
     const { _id } = req.user;
@@ -105,6 +135,11 @@ async function getMyEvents(req, res) {
   }
 }
 
+/**
+ * Join an event, creating a guest user if necessary.
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
 async function joinEvent(req, res) {
   let participants;
   const handleJoin = async (request) => {
@@ -190,6 +225,11 @@ async function joinEvent(req, res) {
   }
 }
 
+/**
+ * Remove a participant from an event.
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
 async function removeParticipant(req, res) {
   try {
     let selectedEvent = await Event.findById(req.body.selectedEventId);
